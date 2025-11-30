@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SOSAC TV - Welcome</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { 
+      font-family: Arial, sans-serif; 
+      background: #667eea; 
+      min-height: 100vh; 
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+      padding: 20px;
+    }
+    .container { 
+      background: #fff; 
+      padding: 30px; 
+      border-radius: 10px; 
+      max-width: 350px; 
+      text-align: center;
+    }
+    .logo { font-size: 3em; margin-bottom: 20px; }
+    h1 { color: #333; margin-bottom: 15px; font-size: 1.8em; font-weight: bold; }
+    p { color: #666; margin-bottom: 25px; line-height: 1.6; font-size: 1em; }
+    input { 
+      width: 100%; 
+      padding: 10px; 
+      margin-bottom: 15px; 
+      border: 1px solid #ddd; 
+      border-radius: 5px; 
+      font-size: 1em;
+    }
+    button { 
+      width: 100%; 
+      padding: 10px; 
+      background: #667eea; 
+      color: white; 
+      border: none; 
+      border-radius: 5px; 
+      font-size: 1em; 
+      font-weight: bold; 
+      cursor: pointer;
+    }
+    .features { 
+      text-align: left; 
+      margin-top: 25px; 
+      padding-top: 25px; 
+      border-top: 2px solid #f0f0f0; 
+      font-size: 0.9em; 
+      color: #666; 
+    }
+    .feature { 
+      display: flex; 
+      align-items: center; 
+      margin-bottom: 10px; 
+    }
+    .feature-icon { 
+      margin-right: 10px; 
+      font-size: 1.2em; 
+      min-width: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="logo">📺</div>
+  <h1>SOSAC TV</h1>
+  <p>Welcome! Enter your name to start searching unlimited YouTube videos.</p>
+  
+  <input type="text" id="userName" placeholder="Enter your name" autofocus>
+  <button onclick="startApp()">Start Watching</button>
+  
+  <div class="features">
+    <div class="feature">
+      <div class="feature-icon">✅</div>
+      <div>Unlimited Free Searches</div>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">🎵</div>
+      <div>Download MP3 & MP4</div>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">📱</div>
+      <div>Offline Viewing</div>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">∞</div>
+      <div>Infinite Scroll</div>
+    </div>
+  </div>
+</div>
+
+<script>
+// CHECK IF USER ALREADY REGISTERED - SKIP WELCOME AND GO TO MAIN APP
+if (localStorage.getItem("sosacUserName")) {
+  window.location.href = "index.html";
+}
+
+document.getElementById('userName').focus();
+document.getElementById('userName').addEventListener('keypress', function(e) {
+  if (e.key === 'Enter') startApp();
+});
+
+function startApp() {
+  const name = document.getElementById('userName').value.trim();
+  if (!name) {
+    alert('Please enter your name!');
+    return;
+  }
+  localStorage.setItem('sosacUserName', name);
+  localStorage.setItem('sosacUserPic', '');
+  window.location.href = 'index.html';
+}
+</script>
+
+</body>
+</html>

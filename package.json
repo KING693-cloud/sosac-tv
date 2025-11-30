@@ -1,0 +1,34 @@
+{
+  "name": "sosac-tv",
+  "version": "10.0.0",
+  "description": "SOSAC TV - Free YouTube Search & Download PWA with infinite scroll, MP3/MP4 downloads, and offline support",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "youtube",
+    "search",
+    "download",
+    "pwa",
+    "progressive-web-app",
+    "mp3",
+    "mp4",
+    "free"
+  ],
+  "author": "SOSAC TV",
+  "license": "MIT",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "dependencies": {
+    "archiver": "^7.0.1",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "play-dl": "^1.9.7",
+    "youtube-search-api": "^2.0.1",
+    "ytdl-core": "^4.11.5",
+    "ytsr": "^3.8.4"
+  }
+}
